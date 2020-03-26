@@ -1,0 +1,61 @@
+// @import "variables.scss";
+
+$linkColor: orange;
+$linkColorHover: grey;
+
+$my-contentColorSmall: red;
+$my-contentColorMedium: yellow;
+$my-contentColorUpperMedium: white;
+$my-contentColorLarge: purple;
+
+$large: 1000px;
+$medium: 800px;
+$small: 600px;
+
+$forMixin: go;
+
+@mixin respond-to($media) {
+  @if $media == 1000 {
+    @media only screen and (max-width: $small) {@content;}
+  }
+  @else if $media == $forMixin {
+    @media only screen and (min-width: $small + 1) and (max-width: $medium - 1) { @content; }
+  } 
+  @else if $media == my-parametr {
+    @media only screen and (min-width: $medium) and (max-width: $large - 1) { @content; }
+  }
+  @else if $media == wide-screns {
+    @media only screen and (min-width: $large) { @content; }
+  }
+}
+
+h1 {
+  color: $linkColor;
+  &:hover {
+    color: $linkColorHover;
+  }
+}
+
+#root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: grey;
+}
+
+.my-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: -75px;
+  height: 150px;
+  width: 250px;
+  
+  @include respond-to(1000) {background-color: $my-contentColorSmall;};
+  @include respond-to($forMixin) {background-color: $my-contentColorMedium;};
+  @include respond-to(my-parametr) {background-color: $my-contentColorUpperMedium;}
+  @include respond-to(wide-screns) {background-color: $my-contentColorLarge;};
+}
