@@ -5,8 +5,13 @@ $linkColorHover: grey;
 
 $my-contentColorSmall: red;
 $my-contentColorMedium: yellow;
-$my-contentColorUpperMedium: white;
+$my-contentColorUpperMedium: grey;
 $my-contentColorLarge: purple;
+
+%forSmall { 
+  background-color: red; 
+  border: 1px solid green;
+}
 
 $large: 1000px;
 $medium: 800px;
@@ -36,15 +41,6 @@ h1 {
   }
 }
 
-#root {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: grey;
-}
-
 .my-content {
   position: absolute;
   top: 50%;
@@ -53,9 +49,12 @@ h1 {
   margin-top: -75px;
   height: 150px;
   width: 250px;
-  
-  @include respond-to(1000) {background-color: $my-contentColorSmall;};
-  @include respond-to($forMixin) {background-color: $my-contentColorMedium;};
-  @include respond-to(my-parametr) {background-color: $my-contentColorUpperMedium;}
-  @include respond-to(wide-screns) {background-color: $my-contentColorLarge;};
+
+  @include respond-to(1000) {background-color: $my-contentColorSmall; border: 5px solid black};
+  @include respond-to($forMixin) {background-color: $my-contentColorMedium; border: 5px solid green};
+  @include respond-to(my-parametr) {background-color: $my-contentColorUpperMedium; border: 5px solid olive}
+  @include respond-to(wide-screns) {background-color: $my-contentColorLarge; border: 5px solid coral};
+  // в присьме спрашивал о том как передать больше параметров решение само пришло
+  // но все равно хотелось бы услышать ответ на вопрос какой миксин счиатется 
+  // сложным а какой приемлимым 
 }
