@@ -1,3 +1,5 @@
+$mobileWidth: 600px;
+
 * {
     padding: 0;
     margin: 0;
@@ -16,7 +18,7 @@
     background-color: rgb(21, 211, 186);
 }
 
-@media (max-width: 600px) {
+@media (max-width: $mobileWidth) {
     .header {
         flex-direction: column;
         align-items: center;
@@ -29,7 +31,7 @@
     margin-right: 30px;
     background-color: purple;
 }
-@media (max-width: 600px) {
+@media (max-width: $mobileWidth) {
     .header__logo {
         margin-right: 0;
         margin-bottom: 25px;
@@ -40,7 +42,7 @@
     flex-grow: 10;
 }
 
-@media (max-width: 600px) {
+@media (max-width: $mobileWidth) {
     .header__nav {
         width: 100%;
     }
@@ -70,7 +72,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: $mobileWidth) {
     .header__links {
         justify-content: center;
     }
